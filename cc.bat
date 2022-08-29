@@ -1,0 +1,1 @@
+touch stories %1.vue %1.css %1.stories.js
