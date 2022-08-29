@@ -73,3 +73,14 @@ Basic.args = {
   data : basicData
 };
 
+
+
+export const Disabled = Template.bind({});
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+Disabled.args = {
+  primary: true,
+  schema: schema,
+  data : basicData,
+  enabled: false
+};
+

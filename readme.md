@@ -7,3 +7,8 @@
 
 npm install vite -D
 npm install @vitejs/plugin-vue -D
+
+
+Deployed on 
+
+https://dm-vue-components.netlify.app/
