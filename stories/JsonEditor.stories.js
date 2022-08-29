@@ -5,15 +5,53 @@ export default {
   title: 'Example/JsonEditor',
   component: JsonEditor,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-    },
-  },
 };
+
+const schema = {
+  type: "object",
+  title: "Car",
+  properties: {
+    make: {
+      type: "string",
+      enum: [
+        "Toyota",
+        "BMW",
+        "Honda",
+        "Ford",
+        "Chevy",
+        "VW"
+      ]
+    },
+    model: {
+      type: "string"
+    },
+    year: {
+      type: "integer",
+      enum: [
+        1995,1996,1997,1998,1999,
+        2000,2001,2002,2003,2004,
+        2005,2006,2007,2008,2009,
+        2010,2011,2012,2013,2014
+      ],
+      default: 2008
+    },
+    safety: {
+      type: "integer",
+      format: "rating",
+      maximum: "5",
+      exclusiveMaximum: false,
+      readonly: false
+    }
+  }
+}
+
+
+const basicData = {
+  "make": "Chevy",
+  "model": "2000",
+  "year": 2014,
+  "safety": 4
+}
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
@@ -27,10 +65,11 @@ const Template = (args) => ({
   template: '<json-editor v-bind="args" />',
 });
 
-export const Primary = Template.bind({});
+export const Basic = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
-Primary.args = {
+Basic.args = {
   primary: true,
-  label: 'Button',
+  schema: schema,
+  data : basicData
 };
 
