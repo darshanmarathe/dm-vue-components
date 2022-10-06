@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import './JsonEditor.css';
+import './JsonForm.css';
 import { JSONEditor } from '@json-editor/json-editor/dist/jsoneditor';
 export default {
-  name: 'json-editor',
+  name: 'json-form',
   components: {},
 
   props: {
