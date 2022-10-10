@@ -1,5 +1,6 @@
 <template>
   <div ref="jsoneditor" id="jsoneditor">
+    <h2>{{title}}</h2>
 
   </div>
 </template>
@@ -22,12 +23,16 @@ export default {
       type: Boolean,
       default: true
     },
+    title: {
+      type: String,
+      default: ""
+    },
   },
 
   mounted() {
     debugger;
     // access our input using template refs, then focus
-    console.warn(this.$refs)
+
     var editor = new JSONEditor(this.$refs.jsoneditor, {
       theme: 'bootstrap4',
       iconlib: 'fontawesome4',
@@ -42,6 +47,10 @@ export default {
         editor.disable();
       }
     });
+
+    editor.on('change' , () => {
+      this.$emit('change' , editor.getValue())
+    })
 
   },
 

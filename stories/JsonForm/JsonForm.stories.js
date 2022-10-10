@@ -53,16 +53,19 @@ const basicData = {
   "safety": 4
 }
 
+import {ref} from 'vue'
+const data = ref({})
+
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
   components: { JsonForm: JsonForm },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
-    return { args };
+    return { args , data };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<json-form v-bind="args" />',
+  template: '<pre>{{JSON.stringify(data , null ,4)}} </pre> <json-form v-bind="args" />',
 });
 
 export const Basic = Template.bind({});
@@ -70,7 +73,8 @@ export const Basic = Template.bind({});
 Basic.args = {
   primary: true,
   schema: schema,
-  data : basicData
+  data : basicData,
+  title : "Basic configuration"
 };
 
 
@@ -81,6 +85,21 @@ Disabled.args = {
   primary: true,
   schema: schema,
   data : basicData,
-  enabled: false
+  enabled: false,
+  title : "Disabled mode"
 };
 
+
+export const Event = Template.bind({});
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+Event.args = {
+  primary: true,
+  schema: schema,
+  data : basicData,
+  enabled: true,
+  onChange: (d => {
+    console.warn(d)
+    data.value = d
+  }),
+  title : "Check console.warn"
+};
