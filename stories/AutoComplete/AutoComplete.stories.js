@@ -262,8 +262,9 @@ const Template = (args) => ({
   setup() {
     return { args  };
   },
+
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<dm-auto-complete v-bind="args" />',
+  template: '<auto-complete v-bind="args" />',
 });
 
 export const Basic = Template.bind({});
@@ -275,3 +276,60 @@ Basic.args = {
   title : "Basic configuration"
 };
 
+
+export const AutoAjax = Template.bind({});
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+AutoAjax.args = {
+  url : 'https://jsonplaceholder.typicode.com/users',
+  records: [],
+  textprop: 'name',
+  keyprop : 'username',
+  title : "AutoAjax configuration"
+};
+
+
+
+
+export const Select_Template = Template.bind({});
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+Select_Template.args = {
+  url : 'https://jsonplaceholder.typicode.com/users',
+  records: [],
+  textprop: 'name',
+  keyprop : 'username',
+  title : "AutoAjax configuration",
+  placeholder: 'Type cle for now ',
+  template:"{username} - {name} <br> {company.name}"
+};
+
+
+
+
+export const Text_Template = Template.bind({});
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+Text_Template.args = {
+  url : 'https://jsonplaceholder.typicode.com/users',
+  records: [],
+  textprop: 'name',
+  keyprop : 'username',
+  title : "AutoAjax configuration",
+  placeholder: 'Type cle for now ',
+  template:"{username} - {name} <br> {company.name}",
+  texttemplate:"{username} :{name}"
+};
+
+
+export const Events = Template.bind({});
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+Events.args = {
+  url : 'https://jsonplaceholder.typicode.com/users',
+  records: [],
+  textprop: 'name',
+  keyprop : 'username',
+  title : "AutoAjax configuration",
+  placeholder: 'Type cle for now ',
+  template:"{username} - {name} <br> {company.name}",
+  texttemplate:"{username} :{name}",
+  onChange: (e) => console.warn(e),
+ 
+};

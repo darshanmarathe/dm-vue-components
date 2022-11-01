@@ -9,7 +9,7 @@
 import './JsonForm.css';
 import { JSONEditor } from '@json-editor/json-editor/dist/jsoneditor';
 export default {
-  name: 'json-form',
+  name: 'dm-json-form',
   components: {},
 
   props: {
