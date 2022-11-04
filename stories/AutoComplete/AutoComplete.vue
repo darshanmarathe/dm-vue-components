@@ -147,7 +147,7 @@ export default {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[1].value;
               inp.dataset.key = this.getElementsByTagName("input")[0].value;
-              that.$emit('onChange',  { key: inp.dataset.key, value: inp.value })
+              that.$emit('select',  { key: inp.dataset.key, value: inp.value })
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
@@ -233,6 +233,6 @@ export default {
   },
 
 
-  emits: ['onChange','input'],
+  emits: ['onSelect','input'],
 };
 </script>

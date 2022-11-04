@@ -264,7 +264,7 @@ const Template = (args) => ({
   },
 
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<auto-complete v-bind="args" />',
+  template: '<b>{{args.title}} </b> <br> <auto-complete v-bind="args" /> ',
 });
 
 export const Basic = Template.bind({});
@@ -297,7 +297,7 @@ Select_Template.args = {
   records: [],
   textprop: 'name',
   keyprop : 'username',
-  title : "AutoAjax configuration",
+  title : "Set templates for how you like the search to show up",
   placeholder: 'Type cle for now ',
   template:"{username} - {name} <br> {company.name}"
 };
@@ -312,7 +312,7 @@ Text_Template.args = {
   records: [],
   textprop: 'name',
   keyprop : 'username',
-  title : "AutoAjax configuration",
+  title : "Set templates for how you like the VALUE to show up",
   placeholder: 'Type cle for now ',
   template:"{username} - {name} <br> {company.name}",
   texttemplate:"{username} :{name}"
@@ -326,10 +326,10 @@ Events.args = {
   records: [],
   textprop: 'name',
   keyprop : 'username',
-  title : "AutoAjax configuration",
+  title : "check console.warn",
   placeholder: 'Type cle for now ',
   template:"{username} - {name} <br> {company.name}",
   texttemplate:"{username} :{name}",
-  onChange: (e) => console.warn(e),
+  onSelect: (e) => console.warn(e),
  
 };
